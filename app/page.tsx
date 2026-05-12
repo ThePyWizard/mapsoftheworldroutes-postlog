@@ -18,7 +18,7 @@ export default async function Home({
   const { data, error } = await supabase
     .from("contents")
     .select("*")
-    .order("created_at", { ascending: false });
+    .order("post_id", { ascending: true });
 
   const all: Post[] = (data ?? []) as Post[];
   const total = all.length;
