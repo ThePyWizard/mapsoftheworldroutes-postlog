@@ -22,7 +22,7 @@ export default async function Home({
 
   const all: Post[] = (data ?? []) as Post[];
   const total = all.length;
-  const numbered = all.map((post, i) => ({ post, number: total - i }));
+  const numbered = all.map((post) => ({ post, number: post.post_id }));
   const pending = numbered.filter(({ post }) => !post.posted);
   const posted = numbered.filter(({ post }) => post.posted);
   const pendingCount = pending.length;
